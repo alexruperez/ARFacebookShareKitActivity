@@ -1,4 +1,4 @@
-#import <FBSDKShareKit/FBSDKShareKit.h>
+#import <UIKit/UIKit.h>
 
 
 FOUNDATION_EXPORT double ARFacebookShareKitActivityVersionNumber;

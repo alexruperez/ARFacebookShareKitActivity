@@ -1,5 +1,7 @@
 PODS:
-  - ARFacebookShareKitActivity (0.1.0):
+  - ARFacebookShareKitActivity (0.1.4):
+    - Bolts (~> 1.7)
+    - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
   - Bolts (1.7.0):
     - Bolts/AppLinks (= 1.7.0)
@@ -20,7 +22,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ARFacebookShareKitActivity: 2e892aef10c272b2f1288ca68eba3d5a8ce5de7f
+  ARFacebookShareKitActivity: a34b2e5669e1d1228ac35ade3165c6711c50664b
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
