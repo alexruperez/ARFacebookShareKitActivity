@@ -11,11 +11,11 @@
 
 Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.
 
-![ARFacebookShareKitActivity Screenshot 1](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.png)
+![ARFacebookShareKitActivity Screenshot 1](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.jpg)
 
-![ARFacebookShareKitActivity Screenshot 2](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot2.png)
+![ARFacebookShareKitActivity Screenshot 2](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot2.jpg)
 
-![ARFacebookShareKitActivity Screenshot 3](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot3.png)
+![ARFacebookShareKitActivity Screenshot 3](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot3.jpg)
 
 #### Also compatible with Branch Metrics and Facebook App Invites!
 

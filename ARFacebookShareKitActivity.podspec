@@ -4,9 +4,9 @@ Pod::Spec.new do |s|
   s.summary          = 'Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.'
 
   s.homepage         = 'https://github.com/alexruperez/ARFacebookShareKitActivity'
-  s.screenshots      = ['https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.png',
-                        'https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot2.png',
-                        'https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot3.png']
+  s.screenshots      = ['https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.jpg',
+                        'https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot2.jpg',
+                        'https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot3.jpg']
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'alexruperez' => 'contact@alexruperez.com' }
   s.source           = { :git => 'https://github.com/alexruperez/ARFacebookShareKitActivity.git', :tag => s.version.to_s }
