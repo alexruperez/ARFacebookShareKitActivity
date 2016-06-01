@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ARFacebookShareKitActivity_Example' do
+  pod 'ARFacebookShareKitActivity', :path => '../'
+
+  target 'ARFacebookShareKitActivity_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
