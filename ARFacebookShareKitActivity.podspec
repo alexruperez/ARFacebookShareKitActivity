@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ARFacebookShareKitActivity'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.'
 
   s.homepage         = 'https://github.com/alexruperez/ARFacebookShareKitActivity'
@@ -17,7 +17,4 @@ Pod::Spec.new do |s|
   s.source_files = 'ARFacebookShareKitActivity/Classes/**/*'
 
   s.dependency 'FBSDKShareKit', '~> 4.12'
-  
-  s.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => "VERSION=@\\\"#{s.version}\\\"",
-                 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 end
