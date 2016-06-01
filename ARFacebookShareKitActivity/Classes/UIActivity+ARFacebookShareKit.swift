@@ -50,18 +50,18 @@ extension UIActivity {
             static var token: dispatch_once_t = 0
         }
         
-        let klass = NSClassFromString("UISoc"+"ialAct"+"ivity")!
+        let klass: AnyClass = NSClassFromString("UISoc"+"ialAct"+"ivity")!
         
-        if self !== klass {
+        if self != klass {
             return
         }
         
         dispatch_once(&Static.token) {
-            ARSwizzleInstanceMethod(klass, originalSelector: Selector("prepareWithActivityItems:"), swizzledSelector: Selector("ar_prepareWithActivityItems:"))
+            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.prepareWithActivityItems(_:)), swizzledSelector: #selector(UIActivity.ar_prepareWithActivityItems(_:)))
             
-            ARSwizzleInstanceMethod(klass, originalSelector: Selector("canPerformWithActivityItems:"), swizzledSelector: Selector("ar_canPerformWithActivityItems:"))
+            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.canPerformWithActivityItems(_:)), swizzledSelector: #selector(UIActivity.ar_canPerformWithActivityItems(_:)))
             
-            ARSwizzleInstanceMethod(klass, originalSelector: Selector("performActivity"), swizzledSelector: Selector("ar_performActivity"))
+            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.performActivity), swizzledSelector: #selector(UIActivity.ar_performActivity))
         }
     }
     
@@ -104,7 +104,9 @@ extension UIActivity {
         for itemSource in activityItems {
             var item: AnyObject? = nil
             if itemSource.conformsToProtocol(UIActivityItemSource) {
-                item = (itemSource as? UIActivityItemSource)?.activityViewController(activityViewController() as! UIActivityViewController, itemForActivityType: activityType as! String)
+                if let activityType = activityType() {
+                    item = (itemSource as? UIActivityItemSource)?.activityViewController(activityViewController() as! UIActivityViewController, itemForActivityType: activityType)
+                }
             } else {
                 item = itemSource
             }
@@ -145,8 +147,6 @@ extension UIActivity {
                 }
             }
         }
-        
-        isAppInvite = true
         
         if isAppInvite {
             let appInviteContent = FBSDKAppInviteContent()

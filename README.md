@@ -1,15 +1,27 @@
 # ARFacebookShareKitActivity
 
+[![Twitter](http://img.shields.io/badge/contact-@alexruperez-blue.svg?style=flat)](http://twitter.com/alexruperez)
 [![CI Status](http://img.shields.io/travis/alexruperez/ARFacebookShareKitActivity.svg?style=flat)](https://travis-ci.org/alexruperez/ARFacebookShareKitActivity)
 [![Version](https://img.shields.io/cocoapods/v/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
 [![License](https://img.shields.io/cocoapods/l/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
 [![Platform](https://img.shields.io/cocoapods/p/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
+[![Analytics](https://ga-beacon.appspot.com/UA-55329295-1/ARFacebookShareKitActivity/readme?pixel)](https://github.com/igrigorik/ga-beacon)
 
-## Example
+## Overview
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.
 
-## Requirements
+![ARFacebookShareKitActivity Screenshot 1](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.png)
+
+![ARFacebookShareKitActivity Screenshot 2](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot2.png)
+
+![ARFacebookShareKitActivity Screenshot 3](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot3.png)
+
+#### Also compatible with Branch Metrics and Facebook App Invites!
+
+If you are using [Branch Metrics](https://branch.io) and you want to use [Facebook App Invites](https://developers.facebook.com/docs/app-invites/overview), i'll do [this job](https://dev.branch.io/features/facebook-app-invites/overview/) for you!
+
+Also if you have custom domain registered or the legacy domain.
 
 ## Installation
 
@@ -20,9 +32,27 @@ it, simply add the following line to your Podfile:
 pod "ARFacebookShareKitActivity"
 ```
 
-## Author
+#### Or you can install it with [Carthage](https://github.com/Carthage/Carthage):
 
-alexruperez, contact@alexruperez.com
+```ruby
+github "alexruperez/ARFacebookShareKitActivity"
+```
+
+#### Or you can add the following files to your project:
+* `UIActivity+ARFacebookShareKit.swift`
+
+## Usage
+
+Use it in the same way you use [UIActivityViewController](http://nshipster.com/uiactivityviewcontroller/), that easy!
+
+# Etc.
+
+* Contributions are very welcome.
+* Attribution is appreciated (let's spread the word!), but not mandatory.
+
+## Use it? Love/hate it?
+
+Tweet the author [@alexruperez](http://twitter.com/alexruperez), and check out alexruperez's blog: http://alexruperez.com
 
 ## License
 
