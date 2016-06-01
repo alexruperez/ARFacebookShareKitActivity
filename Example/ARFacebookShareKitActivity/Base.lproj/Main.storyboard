@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ARFacebookShareKitActivity" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,58 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jio-qN-ezi">
+                                <rect key="frame" x="20" y="247" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="HnN-aJ-AAa"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Orm-Ca-SGk">
+                                <rect key="frame" x="20" y="285" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="tNR-BG-qNB"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwd-Lh-ofK">
+                                <rect key="frame" x="275" y="323" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c9O-aE-ZTO"/>
+                                    <constraint firstAttribute="width" constant="50" id="zbN-Xn-wA3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Share!"/>
+                                <connections>
+                                    <action selector="shareAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wpl-iN-yLf"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Orm-Ca-SGk" firstAttribute="top" secondItem="jio-qN-ezi" secondAttribute="bottom" constant="8" id="6cg-Lt-d2G"/>
+                            <constraint firstItem="Orm-Ca-SGk" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Ltk-dp-b26"/>
+                            <constraint firstItem="jio-qN-ezi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Rfc-Nc-vrA"/>
+                            <constraint firstItem="wwd-Lh-ofK" firstAttribute="top" secondItem="Orm-Ca-SGk" secondAttribute="bottom" constant="8" id="cEW-b2-6Fy"/>
+                            <constraint firstItem="jio-qN-ezi" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="dLn-n6-QGc"/>
+                            <constraint firstItem="wwd-Lh-ofK" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fFR-Q8-JaK"/>
+                            <constraint firstItem="Orm-Ca-SGk" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="pii-n1-f5v"/>
+                            <constraint firstItem="Orm-Ca-SGk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="sAm-gQ-QsR"/>
+                            <constraint firstItem="Orm-Ca-SGk" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="umQ-gS-E4d"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="linkField" destination="Orm-Ca-SGk" id="utk-Hp-KhV"/>
+                        <outlet property="shareButton" destination="wwd-Lh-ofK" id="PJg-EE-d8T"/>
+                        <outlet property="textField" destination="jio-qN-ezi" id="z7C-sG-1cT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="410" y="334"/>
         </scene>
     </scenes>
 </document>

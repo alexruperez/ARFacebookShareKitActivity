@@ -1,0 +1,27 @@
+{
+  "name": "ARFacebookShareKitActivity",
+  "version": "0.1.0",
+  "summary": "Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.",
+  "homepage": "https://github.com/alexruperez/ARFacebookShareKitActivity",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "alexruperez": "contact@alexruperez.com"
+  },
+  "source": {
+    "git": "https://github.com/alexruperez/ARFacebookShareKitActivity.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/alexruperez",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ARFacebookShareKitActivity/Classes/**/*",
+  "dependencies": {
+    "FBSDKShareKit": [
+      "~> 4.12"
+    ]
+  }
+}

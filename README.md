@@ -22,7 +22,7 @@ pod "ARFacebookShareKitActivity"
 
 ## Author
 
-alexruperez, alexruperez@gmail.com
+alexruperez, contact@alexruperez.com
 
 ## License
 

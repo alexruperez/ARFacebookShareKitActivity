@@ -1,0 +1,30 @@
+PODS:
+  - ARFacebookShareKitActivity (0.1.0):
+    - FBSDKShareKit (~> 4.12)
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - FBSDKCoreKit (4.12.0):
+    - Bolts (~> 1.7)
+  - FBSDKShareKit (4.12.0):
+    - FBSDKCoreKit
+
+DEPENDENCIES:
+  - ARFacebookShareKitActivity (from `../`)
+
+EXTERNAL SOURCES:
+  ARFacebookShareKitActivity:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ARFacebookShareKitActivity: 2e892aef10c272b2f1288ca68eba3d5a8ce5de7f
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
+  FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
+
+PODFILE CHECKSUM: a7db2ac77a7656820cd0520a0c901e02f213c61b
+
+COCOAPODS: 1.0.0
