@@ -1,7 +1,6 @@
 # ARFacebookShareKitActivity
 
 [![Twitter](http://img.shields.io/badge/contact-@alexruperez-blue.svg?style=flat)](http://twitter.com/alexruperez)
-[![CI Status](http://img.shields.io/travis/alexruperez/ARFacebookShareKitActivity.svg?style=flat)](https://travis-ci.org/alexruperez/ARFacebookShareKitActivity)
 [![Version](https://img.shields.io/cocoapods/v/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
 [![License](https://img.shields.io/cocoapods/l/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
 [![Platform](https://img.shields.io/cocoapods/p/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
