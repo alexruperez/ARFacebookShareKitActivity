@@ -1,5 +1,5 @@
 
-import FBSDKShareKit;
+import FBSDKShareKit
 
 extension UIActivity : FBSDKAppInviteDialogDelegate, FBSDKSharingDelegate {
     public func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {

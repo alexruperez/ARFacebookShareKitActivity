@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ARFacebookShareKitActivity'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.'
 
   s.homepage         = 'https://github.com/alexruperez/ARFacebookShareKitActivity'
