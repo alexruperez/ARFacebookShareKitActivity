@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.subspec 'ActivityExtension' do |ss|
     ss.source_files = 'ARFacebookShareKitActivity/Classes/ActivityExtension/*.{h,m,swift}'
     ss.public_header_files = 'ARFacebookShareKitActivity/Classes/ActivityExtension/*.{h}'
-ss.resources = 'ARFacebookShareKitActivity/Assets/ActivityExtension/*.{bundle,xcassets}'
+    ss.resources = 'ARFacebookShareKitActivity/Assets/ActivityExtension/*.{bundle,xcassets}'
   end
   
   s.subspec 'ShareLinkActivity' do |ss|
