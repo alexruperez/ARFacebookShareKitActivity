@@ -1,3 +1,10 @@
+//
+//  UIActivity+FacebookShareKit.swift
+//  ARFacebookShareKitActivity
+//
+//  Created by alexruperez on 2/6/16.
+//  Copyright © 2016 CocoaPods. All rights reserved.
+//
 
 import FBSDKShareKit
 

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ARFacebookShareKitActivity'
-  s.version          = '0.1.4'
-  s.summary          = 'Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.'
+  s.version          = '0.1.5'
+  s.summary          = 'Launch FBSDKShareKit from UIActivityViewController.'
 
   s.homepage         = 'https://github.com/alexruperez/ARFacebookShareKitActivity'
   s.screenshots      = [ 'https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.jpg',
@@ -14,9 +14,31 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'ARFacebookShareKitActivity/Classes/**/*'
-
   s.dependency 'FBSDKShareKit', '~> 4.12'
   s.dependency 'FBSDKCoreKit', '~> 4.12'
   s.dependency 'Bolts', '~> 1.7'
+  
+  s.subspec 'ActivityExtension' do |ss|
+    ss.source_files = 'ARFacebookShareKitActivity/Classes/ActivityExtension/*.{h,m,swift}'
+    ss.public_header_files = 'ARFacebookShareKitActivity/Classes/ActivityExtension/*.{h}'
+ss.resources = 'ARFacebookShareKitActivity/Assets/ActivityExtension/*.{bundle,xcassets}'
+  end
+  
+  s.subspec 'ShareLinkActivity' do |ss|
+    ss.source_files = 'ARFacebookShareKitActivity/Classes/ShareLinkActivity/*.{h,m,swift}'
+    ss.public_header_files = 'ARFacebookShareKitActivity/Classes/ShareLinkActivity/*.{h}'
+    ss.resources = 'ARFacebookShareKitActivity/Assets/ShareLinkActivity/*.{bundle,xcassets}'
+  end
+  
+  s.subspec 'AppInviteActivity' do |ss|
+    ss.source_files = 'ARFacebookShareKitActivity/Classes/AppInviteActivity/*.{h,m,swift}'
+    ss.public_header_files = 'ARFacebookShareKitActivity/Classes/AppInviteActivity/*.{h}'
+    ss.resources = 'ARFacebookShareKitActivity/Assets/AppInviteActivity/*.{bundle,xcassets}'
+  end
+  
+  s.subspec 'ShareMediaActivity' do |ss|
+    ss.source_files = 'ARFacebookShareKitActivity/Classes/ShareMediaActivity/*.{h,m,swift}'
+    ss.public_header_files = 'ARFacebookShareKitActivity/Classes/ShareMediaActivity/*.{h}'
+    ss.resources = 'ARFacebookShareKitActivity/Assets/ShareMediaActivity/*.{bundle,xcassets}'
+  end
 end
