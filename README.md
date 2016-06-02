@@ -8,7 +8,7 @@
 
 ## Overview
 
-Launch [FBSDKShareDialog](https://developers.facebook.com/docs/reference/ios/current/class/FBSDKShareDialog/) from UIActivityViewController instead of the default Facebook share sheet.
+Launch [FBSDKShareDialog](https://developers.facebook.com/docs/reference/ios/current/class/FBSDKShareDialog/) from [UIActivityViewController](http://nshipster.com/uiactivityviewcontroller/) instead of the default Facebook share sheet.
 
 ![ARFacebookShareKitActivity Screenshot 1](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.jpg)
 
@@ -56,4 +56,4 @@ Tweet the author [@alexruperez](http://twitter.com/alexruperez), and check out a
 
 ## License
 
-ARFacebookShareKitActivity is available under the MIT license. See the LICENSE file for more info.
+ARFacebookShareKitActivity is available under the [MIT license](https://opensource.org/licenses/MIT). See the [LICENSE file](https://github.com/alexruperez/ARFacebookShareKitActivity/blob/master/LICENSE) for more info.
