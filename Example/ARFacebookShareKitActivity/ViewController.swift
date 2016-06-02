@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ARFacebookShareKitActivity
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
