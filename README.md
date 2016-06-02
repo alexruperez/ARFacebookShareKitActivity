@@ -8,7 +8,7 @@
 
 ## Overview
 
-Launch FBSDKShareKit from UIActivityViewController instead of the default share sheet.
+Launch [FBSDKShareDialog](https://developers.facebook.com/docs/reference/ios/current/class/FBSDKShareDialog/) from UIActivityViewController instead of the default Facebook share sheet.
 
 ![ARFacebookShareKitActivity Screenshot 1](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot1.jpg)
 
@@ -16,7 +16,7 @@ Launch FBSDKShareKit from UIActivityViewController instead of the default share 
 
 #### Also compatible with Branch Metrics and Facebook App Invites!
 
-If you are using [Branch Metrics](https://branch.io) and you want to use [Facebook App Invites](https://developers.facebook.com/docs/app-invites/overview), i'll do [this job](https://dev.branch.io/features/facebook-app-invites/overview/) for you!
+If you are using [Branch Metrics](https://branch.io) and you want to use [Facebook App Invites](https://developers.facebook.com/docs/app-invites/overview) ([FBSDKAppInviteDialog](https://developers.facebook.com/docs/reference/ios/current/class/FBSDKAppInviteDialog/)), i'll do [this job](https://dev.branch.io/features/facebook-app-invites/overview/) for you!
 
 Even if you have custom domain registered or the legacy domain.
 
