@@ -30,7 +30,7 @@ extension UIActivity : FBSDKAppInviteDialogDelegate, FBSDKSharingDelegate {
     }
 }
 
-extension UIActivity {
+public extension UIActivity {
     private struct AssociatedKeys {
         static var ActivityContent = "ar_ActivityContent"
     }

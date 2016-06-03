@@ -31,7 +31,7 @@
 		2073133FA009957F5BA2C4EE /* Pods-ARFacebookShareKitActivity_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFacebookShareKitActivity_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARFacebookShareKitActivity_Tests/Pods-ARFacebookShareKitActivity_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CA8FCFB8A2DF7965DEA9737 /* Pods-ARFacebookShareKitActivity_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFacebookShareKitActivity_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARFacebookShareKitActivity_Example/Pods-ARFacebookShareKitActivity_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		59C031408D2DD2159C9D7775 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* ARFacebookShareKitActivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFacebookShareKitActivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* ARFacebookShareKitActivityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFacebookShareKitActivityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* ARFacebookShareKitActivity.app */,
+				607FACD01AFB9204008FA782 /* ARFacebookShareKitActivityExample.app */,
 				607FACE51AFB9204008FA782 /* ARFacebookShareKitActivity_Tests.xctest */,
 			);
 			name = Products;
@@ -179,7 +179,7 @@
 			);
 			name = ARFacebookShareKitActivity_Example;
 			productName = ARFacebookShareKitActivity;
-			productReference = 607FACD01AFB9204008FA782 /* ARFacebookShareKitActivity.app */;
+			productReference = 607FACD01AFB9204008FA782 /* ARFacebookShareKitActivityExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 		607FACE41AFB9204008FA782 /* ARFacebookShareKitActivity_Tests */ = {
@@ -492,9 +492,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ARFacebookShareKitActivity/Info.plist;
-				MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Example";
+				MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexruperez.ARFacebookShareKitActivity;
-				PRODUCT_NAME = ARFacebookShareKitActivity;
+				PRODUCT_NAME = ARFacebookShareKitActivityExample;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -505,10 +506,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ARFacebookShareKitActivity/Info.plist;
-				MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Example";
+				MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexruperez.ARFacebookShareKitActivity;
-				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Example";
-				PRODUCT_NAME = ARFacebookShareKitActivity;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = ARFacebookShareKitActivityExample;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

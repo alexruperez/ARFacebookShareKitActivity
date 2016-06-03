@@ -28,11 +28,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        let shareViewController = UIActivityViewController(activityItems: items, applicationActivities: [])
+        let shareViewController = UIActivityViewController(activityItems: items, applicationActivities: [AppInviteActivity(), ShareLinkActivity()])
         shareViewController.excludedActivityTypes = [UIActivityTypePostToTwitter, UIActivityTypePostToWeibo, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr, UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo, UIActivityTypeAirDrop]
         if let popoverPresentationController = shareViewController.popoverPresentationController {
             popoverPresentationController.sourceView = shareButton
-            popoverPresentationController.sourceRect = shareButton.frame
+            popoverPresentationController.sourceRect = CGRectMake(shareButton.frame.width/2, 0, 0, 0)
         }
         
         self.presentViewController(shareViewController, animated: true, completion: nil)

@@ -22,6 +22,18 @@ Even if you have custom domain registered or the legacy domain.
 
 ![ARFacebookShareKitActivity Screenshot 3](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot3.jpg)
 
+#### Like it, but don't want to replace the native sharing activity? Ok, no problem!
+
+You can use the AppInviteActivity, ShareLinkActivity or ShareMediaActivity UIActivity subclasses.
+
+Fully customizable: Title, image, category, mode...
+
+Share activity:
+![ARFacebookShareKitActivity Screenshot 4](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot4.jpg)
+
+Action activity:
+![ARFacebookShareKitActivity Screenshot 4](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot4.jpg)
+
 ## Installation
 
 ARFacebookShareKitActivity is available through [CocoaPods](http://cocoapods.org). To install
@@ -31,6 +43,15 @@ it, simply add the following line to your Podfile:
 pod "ARFacebookShareKitActivity"
 ```
 
+If you only need certain activities, there subspecs available:
+
+```ruby
+pod "ARFacebookShareKitActivity/ActivityExtension"
+pod "ARFacebookShareKitActivity/ShareLinkActivity"
+pod "ARFacebookShareKitActivity/AppInviteActivity"
+pod "ARFacebookShareKitActivity/ShareMediaActivity"
+```
+
 #### Or you can install it with [Carthage](https://github.com/Carthage/Carthage):
 
 ```ruby
@@ -38,7 +59,10 @@ github "alexruperez/ARFacebookShareKitActivity"
 ```
 
 #### Or you can add the following files to your project:
-* `UIActivity+ARFacebookShareKit.swift`
+* `UIActivity+FacebookShareKit.swift`
+* `AppInviteActivity.swift`
+* `ShareLinkActivity.swift`
+* `ShareMediaActivity.swift`
 
 ## Usage
 
@@ -46,7 +70,7 @@ Use it in the same way you use [UIActivityViewController](http://nshipster.com/u
 
 # Etc.
 
-* Special thanks to [jilouc](https://github.com/jilouc)/[CCAFacebookAppActivity](https://github.com/jilouc/CCAFacebookAppActivity), which has inspired this repo.
+* Special thanks to [jilouc](https://github.com/jilouc)/[CCAFacebookAppActivity](https://github.com/jilouc/CCAFacebookAppActivity), which has inspired this repo. Also my colleagues and friends [JavierQuerol](https://github.com/JavierQuerol) and [PabloLerma](https://github.com/PabloLerma)!
 * Contributions are very welcome.
 * Attribution is appreciated (let's spread the word!), but not mandatory.
 

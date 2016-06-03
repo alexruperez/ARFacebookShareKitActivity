@@ -8,11 +8,12 @@
 
 import FBSDKShareKit
 
-class ShareLinkActivity: UIActivity {
+public class ShareLinkActivity: UIActivity {
     
-    var title: String?
-    var image: UIImage?
-    var mode: FBSDKShareDialogMode?
+    public var title: String?
+    public var image: UIImage?
+    public var mode: FBSDKShareDialogMode?
+    public static var category: UIActivityCategory?
     
     private lazy var shareDialog: FBSDKShareDialog = {
         
@@ -25,19 +26,26 @@ class ShareLinkActivity: UIActivity {
     }()
     
     public override class func activityCategory() -> UIActivityCategory {
-        return .Share
+        return category ?? .Share
+    }
+    
+    public convenience init(title: String?, image: UIImage?, mode: FBSDKShareDialogMode?) {
+        self.init()
+        self.title = title
+        self.image = image
+        self.mode = mode
     }
     
     public override func activityType() -> String? {
-        return String(self.dynamicType)
+        return String(ShareLinkActivity.self)
     }
     
     public override func activityTitle() -> String? {
-        return title ?? NSLocalizedString("Share through Facebook", comment: "\(activityType()!) Title")
+        return title ?? NSLocalizedString("Facebook Share", comment: "\(activityType()!) Title")
     }
     
     public override func activityImage() -> UIImage? {
-        return image ?? UIImage(named: activityType()!, inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil)
+        return image ?? UIImage(named: "\(activityType()!)\(ShareLinkActivity.activityCategory().rawValue)", inBundle: NSBundle(forClass: ShareLinkActivity.self), compatibleWithTraitCollection: nil)
     }
     
     public override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {

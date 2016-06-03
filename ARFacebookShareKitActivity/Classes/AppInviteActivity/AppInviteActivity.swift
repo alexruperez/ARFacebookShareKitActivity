@@ -8,10 +8,11 @@
 
 import FBSDKShareKit
 
-class AppInviteActivity: UIActivity {
+public class AppInviteActivity: UIActivity {
     
-    var title: String?
-    var image: UIImage?
+    public var title: String?
+    public var image: UIImage?
+    public static var category: UIActivityCategory?
     
     private lazy var appInviteDialog: FBSDKAppInviteDialog = {
         
@@ -23,19 +24,25 @@ class AppInviteActivity: UIActivity {
     }()
     
     public override class func activityCategory() -> UIActivityCategory {
-        return .Share
+        return category ?? .Share
+    }
+    
+    public convenience init(title: String?, image: UIImage?) {
+        self.init()
+        self.title = title
+        self.image = image
     }
     
     public override func activityType() -> String? {
-        return String(self.dynamicType)
+        return String(AppInviteActivity.self)
     }
     
     public override func activityTitle() -> String? {
-        return title ?? NSLocalizedString("Invite through Facebook", comment: "\(activityType()!) Title")
+        return title ?? NSLocalizedString("Facebook Invite", comment: "\(activityType()!) Title")
     }
     
     public override func activityImage() -> UIImage? {
-        return image ?? UIImage(named: activityType()!, inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil)
+        return image ?? UIImage(named: "\(activityType()!)\(AppInviteActivity.activityCategory().rawValue)", inBundle: NSBundle(forClass: AppInviteActivity.self), compatibleWithTraitCollection: nil)
     }
     
     public override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
