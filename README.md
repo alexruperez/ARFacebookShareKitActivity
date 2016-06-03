@@ -46,7 +46,7 @@ pod "ARFacebookShareKitActivity"
 If you only need certain activities, there subspecs available:
 
 ```ruby
-pod "ARFacebookShareKitActivity/ActivityExtension"
+pod "ARFacebookShareKitActivity/SharingExtension"
 pod "ARFacebookShareKitActivity/ShareLinkActivity"
 pod "ARFacebookShareKitActivity/AppInviteActivity"
 pod "ARFacebookShareKitActivity/ShareMediaActivity"

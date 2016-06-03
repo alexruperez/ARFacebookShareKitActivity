@@ -1,6 +1,6 @@
 {
   "name": "ARFacebookShareKitActivity",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "summary": "Launch FBSDKShareKit from UIActivityViewController.",
   "homepage": "https://github.com/alexruperez/ARFacebookShareKitActivity",
   "screenshots": [
@@ -19,7 +19,7 @@
   },
   "source": {
     "git": "https://github.com/alexruperez/ARFacebookShareKitActivity.git",
-    "tag": "1.0.1"
+    "tag": "1.0.2"
   },
   "social_media_url": "https://twitter.com/alexruperez",
   "platforms": {
@@ -38,28 +38,47 @@
   },
   "subspecs": [
     {
-      "name": "ActivityExtension",
-      "source_files": "ARFacebookShareKitActivity/Classes/ActivityExtension/*.{h,m,swift}",
-      "public_header_files": "ARFacebookShareKitActivity/Classes/ActivityExtension/*.{h}",
-      "resources": "ARFacebookShareKitActivity/Assets/ActivityExtension/*.{bundle,xcassets,png,jpeg,jpg,storyboard,xib}"
+      "name": "SharingDelegateExtension",
+      "source_files": "ARFacebookShareKitActivity/Classes/SharingDelegateExtension/*.swift"
+    },
+    {
+      "name": "SharingExtension",
+      "source_files": "ARFacebookShareKitActivity/Classes/SharingExtension/*.swift",
+      "dependencies": {
+        "ARFacebookShareKitActivity/SharingDelegateExtension": [
+
+        ]
+      }
     },
     {
       "name": "ShareLinkActivity",
-      "source_files": "ARFacebookShareKitActivity/Classes/ShareLinkActivity/*.{h,m,swift}",
-      "public_header_files": "ARFacebookShareKitActivity/Classes/ShareLinkActivity/*.{h}",
-      "resources": "ARFacebookShareKitActivity/Assets/ShareLinkActivity/*.{bundle,xcassets,png,jpeg,jpg,storyboard,xib}"
+      "source_files": "ARFacebookShareKitActivity/Classes/ShareLinkActivity/*.swift",
+      "resources": "ARFacebookShareKitActivity/Assets/ShareLinkActivity/*.xcassets",
+      "dependencies": {
+        "ARFacebookShareKitActivity/SharingDelegateExtension": [
+
+        ]
+      }
     },
     {
       "name": "AppInviteActivity",
-      "source_files": "ARFacebookShareKitActivity/Classes/AppInviteActivity/*.{h,m,swift}",
-      "public_header_files": "ARFacebookShareKitActivity/Classes/AppInviteActivity/*.{h}",
-      "resources": "ARFacebookShareKitActivity/Assets/AppInviteActivity/*.{bundle,xcassets,png,jpeg,jpg,storyboard,xib}"
+      "source_files": "ARFacebookShareKitActivity/Classes/AppInviteActivity/*.swift",
+      "resources": "ARFacebookShareKitActivity/Assets/AppInviteActivity/*.xcassets",
+      "dependencies": {
+        "ARFacebookShareKitActivity/SharingDelegateExtension": [
+
+        ]
+      }
     },
     {
       "name": "ShareMediaActivity",
-      "source_files": "ARFacebookShareKitActivity/Classes/ShareMediaActivity/*.{h,m,swift}",
-      "public_header_files": "ARFacebookShareKitActivity/Classes/ShareMediaActivity/*.{h}",
-      "resources": "ARFacebookShareKitActivity/Assets/ShareMediaActivity/*.{bundle,xcassets,png,jpeg,jpg,storyboard,xib}"
+      "source_files": "ARFacebookShareKitActivity/Classes/ShareMediaActivity/*.swift",
+      "resources": "ARFacebookShareKitActivity/Assets/ShareMediaActivity/*.xcassets",
+      "dependencies": {
+        "ARFacebookShareKitActivity/SharingDelegateExtension": [
+
+        ]
+      }
     }
   ]
 }

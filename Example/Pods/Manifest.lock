@@ -1,25 +1,34 @@
 PODS:
-  - ARFacebookShareKitActivity (1.0.1):
-    - ARFacebookShareKitActivity/ActivityExtension (= 1.0.1)
-    - ARFacebookShareKitActivity/AppInviteActivity (= 1.0.1)
-    - ARFacebookShareKitActivity/ShareLinkActivity (= 1.0.1)
-    - ARFacebookShareKitActivity/ShareMediaActivity (= 1.0.1)
+  - ARFacebookShareKitActivity (1.0.2):
+    - ARFacebookShareKitActivity/AppInviteActivity (= 1.0.2)
+    - ARFacebookShareKitActivity/ShareLinkActivity (= 1.0.2)
+    - ARFacebookShareKitActivity/ShareMediaActivity (= 1.0.2)
+    - ARFacebookShareKitActivity/SharingDelegateExtension (= 1.0.2)
+    - ARFacebookShareKitActivity/SharingExtension (= 1.0.2)
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/ActivityExtension (1.0.1):
+  - ARFacebookShareKitActivity/AppInviteActivity (1.0.2):
+    - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/AppInviteActivity (1.0.1):
+  - ARFacebookShareKitActivity/ShareLinkActivity (1.0.2):
+    - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/ShareLinkActivity (1.0.1):
+  - ARFacebookShareKitActivity/ShareMediaActivity (1.0.2):
+    - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/ShareMediaActivity (1.0.1):
+  - ARFacebookShareKitActivity/SharingDelegateExtension (1.0.2):
+    - Bolts (~> 1.7)
+    - FBSDKCoreKit (~> 4.12)
+    - FBSDKShareKit (~> 4.12)
+  - ARFacebookShareKitActivity/SharingExtension (1.0.2):
+    - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
@@ -42,7 +51,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ARFacebookShareKitActivity: 17b66250f8255b1aa7a6da406fa9bc2d284adb69
+  ARFacebookShareKitActivity: 995c59f35c09ead31071740ca2bfcc35f3223f85
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
