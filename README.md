@@ -29,10 +29,12 @@ You can use the AppInviteActivity, ShareLinkActivity or ShareMediaActivity UIAct
 Fully customizable: Title, image, category, mode...
 
 Share activity:
+
 ![ARFacebookShareKitActivity Screenshot 4](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot4.jpg)
 
 Action activity:
-![ARFacebookShareKitActivity Screenshot 4](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot4.jpg)
+
+![ARFacebookShareKitActivity Screenshot 5](https://raw.githubusercontent.com/alexruperez/ARFacebookShareKitActivity/master/screenshot5.jpg)
 
 ## Installation
 
@@ -70,7 +72,8 @@ Use it in the same way you use [UIActivityViewController](http://nshipster.com/u
 
 # Etc.
 
-* Special thanks to [jilouc](https://github.com/jilouc)/[CCAFacebookAppActivity](https://github.com/jilouc/CCAFacebookAppActivity), which has inspired this repo. Also my colleagues and friends [JavierQuerol](https://github.com/JavierQuerol) and [PabloLerma](https://github.com/PabloLerma)!
+* Special thanks to [jilouc](https://github.com/jilouc)/[CCAFacebookAppActivity](https://github.com/jilouc/CCAFacebookAppActivity), which has inspired this repo.
+* Also my colleagues and friends [JavierQuerol](https://github.com/JavierQuerol) and [PabloLerma](https://github.com/PabloLerma)!
 * Contributions are very welcome.
 * Attribution is appreciated (let's spread the word!), but not mandatory.
 
