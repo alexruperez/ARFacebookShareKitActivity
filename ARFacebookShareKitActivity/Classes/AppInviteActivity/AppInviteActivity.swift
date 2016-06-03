@@ -8,7 +8,7 @@
 
 import FBSDKShareKit
 
-public class AppInviteActivity: UIActivity {
+@objc public class AppInviteActivity: UIActivity {
     
     public var title: String?
     public var image: UIImage?

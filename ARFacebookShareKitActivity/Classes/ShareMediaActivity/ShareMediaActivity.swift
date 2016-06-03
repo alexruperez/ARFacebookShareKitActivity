@@ -8,7 +8,7 @@
 
 import FBSDKShareKit
 
-public class ShareMediaActivity: UIActivity {
+@objc public class ShareMediaActivity: UIActivity {
     
     public var title: String?
     public var image: UIImage?

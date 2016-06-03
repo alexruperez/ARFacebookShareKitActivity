@@ -8,7 +8,7 @@
 
 import FBSDKShareKit
 
-public class ShareLinkActivity: UIActivity {
+@objc public class ShareLinkActivity: UIActivity {
     
     public var title: String?
     public var image: UIImage?
