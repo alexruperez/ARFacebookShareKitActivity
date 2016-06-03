@@ -73,7 +73,7 @@ Use it in the same way you use [UIActivityViewController](http://nshipster.com/u
 # Etc.
 
 * Special thanks to [jilouc](https://github.com/jilouc)/[CCAFacebookAppActivity](https://github.com/jilouc/CCAFacebookAppActivity), which has inspired this repo.
-* Also my colleagues and friends [JavierQuerol](https://github.com/JavierQuerol) and [PabloLerma](https://github.com/PabloLerma)!
+* Also to my colleagues and friends, [JavierQuerol](https://github.com/JavierQuerol) and [PabloLerma](https://github.com/PabloLerma).
 * Contributions are very welcome.
 * Attribution is appreciated (let's spread the word!), but not mandatory.
 
