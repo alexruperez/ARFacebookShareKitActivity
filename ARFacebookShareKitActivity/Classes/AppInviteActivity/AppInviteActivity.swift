@@ -27,6 +27,10 @@ import FBSDKShareKit
         return category ?? .Share
     }
     
+    public class func setActivityCategory(category: UIActivityCategory) {
+        self.category = category
+    }
+    
     public convenience init(title: String?, image: UIImage?) {
         self.init()
         self.title = title

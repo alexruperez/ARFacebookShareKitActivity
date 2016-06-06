@@ -12,7 +12,7 @@ import FBSDKShareKit
     
     public var title: String?
     public var image: UIImage?
-    public var mode: FBSDKShareDialogMode?
+    public var mode: FBSDKShareDialogMode = .Automatic
     public static var category: UIActivityCategory?
     
     private lazy var shareDialog: FBSDKShareDialog = {
@@ -22,7 +22,7 @@ import FBSDKShareKit
         let shareContent = FBSDKShareMediaContent()
         shareContent.media = [AnyObject]()
         shareDialog.shareContent = shareContent
-        shareDialog.mode = self.mode ?? .Automatic
+        shareDialog.mode = self.mode
         
         return shareDialog
     }()
@@ -31,7 +31,11 @@ import FBSDKShareKit
         return category ?? .Share
     }
     
-    public convenience init(title: String?, image: UIImage?, mode: FBSDKShareDialogMode?) {
+    public class func setActivityCategory(category: UIActivityCategory) {
+        self.category = category
+    }
+    
+    public convenience init(title: String?, image: UIImage?, mode: FBSDKShareDialogMode) {
         self.init()
         self.title = title
         self.image = image
