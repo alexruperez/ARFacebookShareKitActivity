@@ -166,12 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ARFacebookShareKitActivity_Example" */;
 			buildPhases = (
-				51A4C3AA171D69B34284ABE0 /* 📦 Check Pods Manifest.lock */,
+				51A4C3AA171D69B34284ABE0 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				E0E69B1ED7E1BA306A8200C9 /* 📦 Embed Pods Frameworks */,
-				EB42F28F852ECEC650C0C961 /* 📦 Copy Pods Resources */,
+				E0E69B1ED7E1BA306A8200C9 /* [CP] Embed Pods Frameworks */,
+				EB42F28F852ECEC650C0C961 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,12 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ARFacebookShareKitActivity_Tests" */;
 			buildPhases = (
-				D7964EB2E8D344EF3248568A /* 📦 Check Pods Manifest.lock */,
+				D7964EB2E8D344EF3248568A /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				6A7DA36F9421C08B230F9897 /* 📦 Embed Pods Frameworks */,
-				CE1A66BCB479FB5BE1611306 /* 📦 Copy Pods Resources */,
+				6A7DA36F9421C08B230F9897 /* [CP] Embed Pods Frameworks */,
+				CE1A66BCB479FB5BE1611306 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,14 +262,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51A4C3AA171D69B34284ABE0 /* 📦 Check Pods Manifest.lock */ = {
+		51A4C3AA171D69B34284ABE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,14 +277,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		6A7DA36F9421C08B230F9897 /* 📦 Embed Pods Frameworks */ = {
+		6A7DA36F9421C08B230F9897 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,14 +292,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARFacebookShareKitActivity_Tests/Pods-ARFacebookShareKitActivity_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CE1A66BCB479FB5BE1611306 /* 📦 Copy Pods Resources */ = {
+		CE1A66BCB479FB5BE1611306 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,14 +307,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARFacebookShareKitActivity_Tests/Pods-ARFacebookShareKitActivity_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7964EB2E8D344EF3248568A /* 📦 Check Pods Manifest.lock */ = {
+		D7964EB2E8D344EF3248568A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,14 +322,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E0E69B1ED7E1BA306A8200C9 /* 📦 Embed Pods Frameworks */ = {
+		E0E69B1ED7E1BA306A8200C9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,14 +337,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARFacebookShareKitActivity_Example/Pods-ARFacebookShareKitActivity_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB42F28F852ECEC650C0C961 /* 📦 Copy Pods Resources */ = {
+		EB42F28F852ECEC650C0C961 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,33 +1,33 @@
 PODS:
-  - ARFacebookShareKitActivity (1.0.4):
-    - ARFacebookShareKitActivity/AppInviteActivity (= 1.0.4)
-    - ARFacebookShareKitActivity/ShareLinkActivity (= 1.0.4)
-    - ARFacebookShareKitActivity/ShareMediaActivity (= 1.0.4)
-    - ARFacebookShareKitActivity/SharingDelegateExtension (= 1.0.4)
-    - ARFacebookShareKitActivity/SharingExtension (= 1.0.4)
+  - ARFacebookShareKitActivity (1.0.5):
+    - ARFacebookShareKitActivity/AppInviteActivity (= 1.0.5)
+    - ARFacebookShareKitActivity/ShareLinkActivity (= 1.0.5)
+    - ARFacebookShareKitActivity/ShareMediaActivity (= 1.0.5)
+    - ARFacebookShareKitActivity/SharingDelegateExtension (= 1.0.5)
+    - ARFacebookShareKitActivity/SharingExtension (= 1.0.5)
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/AppInviteActivity (1.0.4):
+  - ARFacebookShareKitActivity/AppInviteActivity (1.0.5):
     - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/ShareLinkActivity (1.0.4):
+  - ARFacebookShareKitActivity/ShareLinkActivity (1.0.5):
     - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/ShareMediaActivity (1.0.4):
+  - ARFacebookShareKitActivity/ShareMediaActivity (1.0.5):
     - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/SharingDelegateExtension (1.0.4):
+  - ARFacebookShareKitActivity/SharingDelegateExtension (1.0.5):
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
     - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/SharingExtension (1.0.4):
+  - ARFacebookShareKitActivity/SharingExtension (1.0.5):
     - ARFacebookShareKitActivity/SharingDelegateExtension
     - Bolts (~> 1.7)
     - FBSDKCoreKit (~> 4.12)
@@ -51,11 +51,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ARFacebookShareKitActivity: abc71581eae47fc0ec45b2abdd7bb6fc26696a93
+  ARFacebookShareKitActivity: 544cdd52f3470b302cd4dba447a0960f6137dac9
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
 
 PODFILE CHECKSUM: a7db2ac77a7656820cd0520a0c901e02f213c61b
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
