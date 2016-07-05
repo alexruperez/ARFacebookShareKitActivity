@@ -14,7 +14,11 @@ extension UIActivity : FBSDKAppInviteDialogDelegate, FBSDKSharingDelegate {
     }
     
     public func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
-        activityDidFinish(false)
+        let appInviteContent = appInviteDialog.content
+        let linkContent = FBSDKShareLinkContent()
+        linkContent.quote = appInviteContent.promotionText
+        linkContent.contentURL = appInviteContent.appLinkURL
+        FBSDKShareDialog.showFromViewController(appInviteDialog.fromViewController, withContent: linkContent, delegate: self)
     }
     
     public func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
