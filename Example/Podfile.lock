@@ -1,37 +1,37 @@
 PODS:
-  - ARFacebookShareKitActivity (1.1):
-    - ARFacebookShareKitActivity/AppInviteActivity (= 1.1)
-    - ARFacebookShareKitActivity/ShareLinkActivity (= 1.1)
-    - ARFacebookShareKitActivity/ShareMediaActivity (= 1.1)
-    - ARFacebookShareKitActivity/SharingDelegateExtension (= 1.1)
-    - ARFacebookShareKitActivity/SharingExtension (= 1.1)
-    - Bolts (~> 1.7)
-    - FBSDKCoreKit (~> 4.12)
-    - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/AppInviteActivity (1.1):
+  - ARFacebookShareKitActivity (1.1.1):
+    - ARFacebookShareKitActivity/AppInviteActivity (= 1.1.1)
+    - ARFacebookShareKitActivity/ShareLinkActivity (= 1.1.1)
+    - ARFacebookShareKitActivity/ShareMediaActivity (= 1.1.1)
+    - ARFacebookShareKitActivity/SharingDelegateExtension (= 1.1.1)
+    - ARFacebookShareKitActivity/SharingExtension (= 1.1.1)
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKShareKit
+  - ARFacebookShareKitActivity/AppInviteActivity (1.1.1):
     - ARFacebookShareKitActivity/SharingDelegateExtension
-    - Bolts (~> 1.7)
-    - FBSDKCoreKit (~> 4.12)
-    - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/ShareLinkActivity (1.1):
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKShareKit
+  - ARFacebookShareKitActivity/ShareLinkActivity (1.1.1):
     - ARFacebookShareKitActivity/SharingDelegateExtension
-    - Bolts (~> 1.7)
-    - FBSDKCoreKit (~> 4.12)
-    - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/ShareMediaActivity (1.1):
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKShareKit
+  - ARFacebookShareKitActivity/ShareMediaActivity (1.1.1):
     - ARFacebookShareKitActivity/SharingDelegateExtension
-    - Bolts (~> 1.7)
-    - FBSDKCoreKit (~> 4.12)
-    - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/SharingDelegateExtension (1.1):
-    - Bolts (~> 1.7)
-    - FBSDKCoreKit (~> 4.12)
-    - FBSDKShareKit (~> 4.12)
-  - ARFacebookShareKitActivity/SharingExtension (1.1):
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKShareKit
+  - ARFacebookShareKitActivity/SharingDelegateExtension (1.1.1):
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKShareKit
+  - ARFacebookShareKitActivity/SharingExtension (1.1.1):
     - ARFacebookShareKitActivity/SharingDelegateExtension
-    - Bolts (~> 1.7)
-    - FBSDKCoreKit (~> 4.12)
-    - FBSDKShareKit (~> 4.12)
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKShareKit
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -51,11 +51,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ARFacebookShareKitActivity: 1f59045d481ee693cb40785ac7d1ef53ff8487c6
+  ARFacebookShareKitActivity: 16111928b9908a146827af63e4e00ba0f5de7295
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
   FBSDKShareKit: e81505de17fc0624cbaa87b83cccc9f2a786e6cb
 
 PODFILE CHECKSUM: a7db2ac77a7656820cd0520a0c901e02f213c61b
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

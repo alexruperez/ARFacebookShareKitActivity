@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ARFacebookShareKitActivity'
-  s.version          = '1.1'
+  s.version          = '1.1.1'
   s.summary          = 'Launch FBSDKShareKit from UIActivityViewController.'
 
   s.homepage         = 'https://github.com/alexruperez/ARFacebookShareKitActivity'
@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.dependency 'FBSDKShareKit', '~> 4.12'
-  s.dependency 'FBSDKCoreKit', '~> 4.12'
-  s.dependency 'Bolts', '~> 1.7'
+  s.dependency 'FBSDKShareKit'
+  s.dependency 'FBSDKCoreKit'
+  s.dependency 'Bolts'
   
   s.subspec 'SharingDelegateExtension' do |ss|
     ss.source_files = 'ARFacebookShareKitActivity/Classes/SharingDelegateExtension/*.swift'
