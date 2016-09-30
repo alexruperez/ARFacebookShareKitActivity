@@ -18,31 +18,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func shareAction(sender: AnyObject) {
         var items = [AnyObject]()
         
-        if textField.text?.characters.count > 0 {
-            items.append(textField.text!)
+        if let text = textField.text, text.characters.count > 0 {
+            items.append(text as AnyObject)
         }
-        
-        if linkField.text?.characters.count > 0 {
+
+        if let text = linkField.text, text.characters.count > 0 {
             if let linkURL = NSURL(string: linkField.text!) {
                 items.append(linkURL)
             }
         }
         
         let shareViewController = UIActivityViewController(activityItems: items, applicationActivities: [AppInviteActivity(), ShareLinkActivity()])
-        shareViewController.excludedActivityTypes = [UIActivityTypePostToTwitter, UIActivityTypePostToWeibo, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr, UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo, UIActivityTypeAirDrop]
+        shareViewController.excludedActivityTypes = [.postToTwitter, .postToWeibo, .message, .mail, .print, .copyToPasteboard, .assignToContact, .saveToCameraRoll, .addToReadingList, .postToFlickr, .postToVimeo, .postToTencentWeibo, .airDrop]
         if let popoverPresentationController = shareViewController.popoverPresentationController {
             popoverPresentationController.sourceView = shareButton
-            popoverPresentationController.sourceRect = CGRectMake(shareButton.frame.width/2, 0, 0, 0)
+            popoverPresentationController.sourceRect = CGRect(x: shareButton.frame.width/2, y: 0, width: 0, height: 0)
         }
-        
-        self.presentViewController(shareViewController, animated: true, completion: nil)
+
+        self.present(shareViewController, animated: true, completion: nil)
     }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

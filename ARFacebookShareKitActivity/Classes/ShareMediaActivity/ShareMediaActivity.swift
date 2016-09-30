@@ -8,14 +8,14 @@
 
 import FBSDKShareKit
 
-@objc public class ShareMediaActivity: UIActivity {
+@objc open class ShareMediaActivity: UIActivity {
     
-    public var title: String?
-    public var image: UIImage?
-    public var mode: FBSDKShareDialogMode = .Automatic
-    public static var category: UIActivityCategory?
+    open var title: String?
+    open var image: UIImage?
+    open var mode: FBSDKShareDialogMode = .automatic
+    open static var category: UIActivityCategory?
     
-    private lazy var shareDialog: FBSDKShareDialog = {
+    fileprivate lazy var shareDialog: FBSDKShareDialog = {
         
         let shareDialog = FBSDKShareDialog()
         shareDialog.delegate = self
@@ -27,11 +27,11 @@ import FBSDKShareKit
         return shareDialog
     }()
     
-    public override class func activityCategory() -> UIActivityCategory {
-        return category ?? .Share
+    open override class var activityCategory : UIActivityCategory {
+        return category ?? .share
     }
     
-    public class func setActivityCategory(category: UIActivityCategory) {
+    open class func setActivityCategory(_ category: UIActivityCategory) {
         self.category = category
     }
     
@@ -41,22 +41,22 @@ import FBSDKShareKit
         self.image = image
         self.mode = mode
     }
-    
-    public override func activityType() -> String? {
-        return String(ShareMediaActivity.self)
+
+    open override var activityType : UIActivityType? {
+        return UIActivityType(String(describing: ShareMediaActivity.self))
     }
     
-    public override func activityTitle() -> String? {
-        return title ?? NSLocalizedString("Facebook Upload", comment: "\(activityType()!) Title")
+    open override var activityTitle : String? {
+        return title ?? NSLocalizedString("Facebook Upload", comment: "\(activityType!) Title")
     }
     
-    public override func activityImage() -> UIImage? {
-        return image ?? UIImage(named: "\(activityType()!)\(ShareMediaActivity.activityCategory().rawValue)", inBundle: NSBundle(forClass: ShareMediaActivity.self), compatibleWithTraitCollection: nil)
+    open override var activityImage : UIImage? {
+        return image ?? UIImage(named: "\(activityType!)\(ShareMediaActivity.activityCategory.rawValue)", in: Bundle(for: ShareMediaActivity.self), compatibleWith: nil)
     }
     
-    public override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+    open override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
         for item in activityItems {
-            if let contentURL = item as? NSURL {
+            if let contentURL = item as? URL {
                 shareDialog.shareContent.contentURL = contentURL
             }
             if let image = item as? UIImage {
@@ -75,7 +75,7 @@ import FBSDKShareKit
         }
     }
     
-    public override func performActivity() {
+    open override func perform() {
         shareDialog.show()
     }
     

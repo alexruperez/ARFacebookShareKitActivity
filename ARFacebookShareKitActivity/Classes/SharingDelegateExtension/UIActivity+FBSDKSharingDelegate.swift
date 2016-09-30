@@ -9,27 +9,27 @@
 import FBSDKShareKit
 
 extension UIActivity : FBSDKAppInviteDialogDelegate, FBSDKSharingDelegate {
-    public func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+    public func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [AnyHashable : Any]!) {
         activityDidFinish(true)
     }
     
-    public func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+    public func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!) {
         let appInviteContent = appInviteDialog.content
         let linkContent = FBSDKShareLinkContent()
-        linkContent.quote = appInviteContent.promotionText
-        linkContent.contentURL = appInviteContent.appLinkURL
-        FBSDKShareDialog.showFromViewController(appInviteDialog.fromViewController, withContent: linkContent, delegate: self)
+        linkContent.quote = appInviteContent?.promotionText
+        linkContent.contentURL = appInviteContent?.appLinkURL
+        FBSDKShareDialog.show(from: appInviteDialog.fromViewController, with: linkContent, delegate: self)
     }
     
-    public func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+    public func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
         activityDidFinish(true)
     }
     
-    public func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+    public func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
         activityDidFinish(false)
     }
     
-    public func sharerDidCancel(sharer: FBSDKSharing!) {
+    public func sharerDidCancel(_ sharer: FBSDKSharing!) {
         activityDidFinish(false)
     }
 }

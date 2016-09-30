@@ -1,6 +1,6 @@
 {
   "name": "ARFacebookShareKitActivity",
-  "version": "1.0.5",
+  "version": "1.1",
   "summary": "Launch FBSDKShareKit from UIActivityViewController.",
   "homepage": "https://github.com/alexruperez/ARFacebookShareKitActivity",
   "screenshots": [
@@ -19,7 +19,7 @@
   },
   "source": {
     "git": "https://github.com/alexruperez/ARFacebookShareKitActivity.git",
-    "tag": "1.0.5"
+    "tag": "1.1"
   },
   "social_media_url": "https://twitter.com/alexruperez",
   "platforms": {

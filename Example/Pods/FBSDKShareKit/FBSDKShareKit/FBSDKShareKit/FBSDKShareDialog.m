@@ -188,6 +188,14 @@ FBSDK_STATIC_INLINE void FBSDKShareDialogValidateShareExtensionSchemeRegisteredF
   NSInteger errorCode = [results[@"error_code"] integerValue];
   if (errorCode == 4201) {
     [self _invokeDelegateDidCancel];
+  } else if (errorCode != 0) {
+    NSError *error = [FBSDKShareError errorWithCode:FBSDKShareUnknownErrorCode
+                                           userInfo:@{
+                                                      FBSDKGraphRequestErrorGraphErrorCode : @(errorCode)
+                                                      }
+                                            message:results[@"error_message"]
+                                    underlyingError:nil];
+    [self _handleWebResponseParameters:nil error:error];
   } else {
     // not all web dialogs report cancellation, so assume that the share has completed with no additional information
     [self _handleWebResponseParameters:results error:nil];
@@ -446,6 +454,16 @@ FBSDK_STATIC_INLINE void FBSDKShareDialogValidateShareExtensionSchemeRegisteredF
   }
 }
 
+- (BOOL)_photoContentHasAtLeastOneImage:(FBSDKSharePhotoContent *)photoContent
+{
+  for (FBSDKSharePhoto *photo in photoContent.photos) {
+    if (photo.image != nil) {
+      return YES;
+    }
+  }
+  return NO;
+}
+
 - (BOOL)_showBrowser:(NSError **)errorRef
 {
   if (![self _validateShareContentForBrowser:errorRef]) {
@@ -454,27 +472,53 @@ FBSDK_STATIC_INLINE void FBSDKShareDialogValidateShareExtensionSchemeRegisteredF
   id<FBSDKSharingContent> shareContent = self.shareContent;
   NSString *methodName;
   NSDictionary *parameters;
-  if (![FBSDKShareUtility buildWebShareContent:shareContent
-                                    methodName:&methodName
-                                    parameters:&parameters
-                                         error:errorRef]) {
-    return NO;
+
+  if ([shareContent isKindOfClass:[FBSDKSharePhotoContent class]] && [self _photoContentHasAtLeastOneImage:(FBSDKSharePhotoContent *)shareContent]) {
+    void(^completion)(BOOL, NSString *, NSDictionary *) = ^(BOOL successfullyBuilt, NSString *cMethodName, NSDictionary *cParameters) {
+      if (successfullyBuilt) {
+        FBSDKBridgeAPICallbackBlock completionBlock = ^(FBSDKBridgeAPIResponse *response) {
+          [self _handleWebResponseParameters:response.responseParameters error:response.error];
+          [FBSDKInternalUtility unregisterTransientObject:self];
+        };
+        FBSDKBridgeAPIRequest *request;
+        request = [FBSDKBridgeAPIRequest bridgeAPIRequestWithProtocolType:FBSDKBridgeAPIProtocolTypeWeb
+                                                                   scheme:FBSDK_SHARE_WEB_SCHEME
+                                                               methodName:cMethodName
+                                                            methodVersion:nil
+                                                               parameters:cParameters
+                                                                 userInfo:nil];
+        [[FBSDKApplicationDelegate sharedInstance] openBridgeAPIRequest:request
+                                                useSafariViewController:[self _useSafariViewController]
+                                                     fromViewController:self.fromViewController
+                                                        completionBlock:completionBlock];
+      }
+    };
+
+    [FBSDKShareUtility buildAsyncWebPhotoContent:shareContent
+                               completionHandler:completion];
+  } else {
+    if (![FBSDKShareUtility buildWebShareContent:shareContent
+                                      methodName:&methodName
+                                      parameters:&parameters
+                                           error:errorRef]) {
+      return NO;
+    }
+    FBSDKBridgeAPICallbackBlock completionBlock = ^(FBSDKBridgeAPIResponse *response) {
+      [self _handleWebResponseParameters:response.responseParameters error:response.error];
+      [FBSDKInternalUtility unregisterTransientObject:self];
+    };
+    FBSDKBridgeAPIRequest *request;
+    request = [FBSDKBridgeAPIRequest bridgeAPIRequestWithProtocolType:FBSDKBridgeAPIProtocolTypeWeb
+                                                               scheme:FBSDK_SHARE_WEB_SCHEME
+                                                           methodName:methodName
+                                                        methodVersion:nil
+                                                           parameters:parameters
+                                                             userInfo:nil];
+    [[FBSDKApplicationDelegate sharedInstance] openBridgeAPIRequest:request
+                                            useSafariViewController:[self _useSafariViewController]
+                                                 fromViewController:self.fromViewController
+                                                    completionBlock:completionBlock];
   }
-  FBSDKBridgeAPICallbackBlock completionBlock = ^(FBSDKBridgeAPIResponse *response) {
-    [self _handleWebResponseParameters:response.responseParameters error:response.error];
-    [FBSDKInternalUtility unregisterTransientObject:self];
-  };
-  FBSDKBridgeAPIRequest *request;
-  request = [FBSDKBridgeAPIRequest bridgeAPIRequestWithProtocolType:FBSDKBridgeAPIProtocolTypeWeb
-                                                             scheme:FBSDK_SHARE_WEB_SCHEME
-                                                         methodName:methodName
-                                                      methodVersion:nil
-                                                         parameters:parameters
-                                                           userInfo:nil];
-  [[FBSDKApplicationDelegate sharedInstance] openBridgeAPIRequest:request
-                                          useSafariViewController:[self _useSafariViewController]
-                                               fromViewController:self.fromViewController
-                                                  completionBlock:completionBlock];
   return YES;
 }
 
@@ -773,12 +817,24 @@ FBSDK_STATIC_INLINE void FBSDKShareDialogValidateShareExtensionSchemeRegisteredF
   BOOL containsPhotos;
   [FBSDKShareUtility testShareContent:shareContent containsMedia:&containsMedia containsPhotos:&containsPhotos containsVideos:NULL];
   if (containsPhotos) {
-    if ((errorRef != NULL) && !*errorRef) {
-      *errorRef = [FBSDKShareError invalidArgumentErrorWithName:@"shareContent"
-                                                          value:shareContent
-                                                        message:@"Web share dialogs cannot include photos."];
+    if ([shareContent isKindOfClass:[FBSDKSharePhotoContent class]]) {
+      if ([FBSDKAccessToken currentAccessToken] != nil) {
+        return YES;
+      }
+      if ((errorRef != NULL) && !*errorRef) {
+        *errorRef = [FBSDKShareError invalidArgumentErrorWithName:@"shareContent"
+                                                            value:shareContent
+                                                          message:@"The web share dialog needs a valid access token to stage photos."];
+      }
+      return NO;
+    } else {
+      if ((errorRef != NULL) && !*errorRef) {
+        *errorRef = [FBSDKShareError invalidArgumentErrorWithName:@"shareContent"
+                                                            value:shareContent
+                                                          message:@"Web share dialogs cannot include photos."];
+      }
+      return NO;
     }
-    return NO;
   }
   if (containsMedia) {
     if ((errorRef != NULL) && !*errorRef) {

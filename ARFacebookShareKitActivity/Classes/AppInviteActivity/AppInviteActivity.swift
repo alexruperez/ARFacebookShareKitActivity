@@ -8,13 +8,13 @@
 
 import FBSDKShareKit
 
-@objc public class AppInviteActivity: UIActivity {
+@objc open class AppInviteActivity: UIActivity {
     
-    public var title: String?
-    public var image: UIImage?
-    public static var category: UIActivityCategory?
+    open var title: String?
+    open var image: UIImage?
+    open static var category: UIActivityCategory?
     
-    private lazy var appInviteDialog: FBSDKAppInviteDialog = {
+    fileprivate lazy var appInviteDialog: FBSDKAppInviteDialog = {
         
         let appInviteDialog = FBSDKAppInviteDialog()
         appInviteDialog.delegate = self
@@ -23,11 +23,11 @@ import FBSDKShareKit
         return appInviteDialog
     }()
     
-    public override class func activityCategory() -> UIActivityCategory {
-        return category ?? .Share
+    open override class var activityCategory : UIActivityCategory {
+        return category ?? .share
     }
     
-    public class func setActivityCategory(category: UIActivityCategory) {
+    open class func setActivityCategory(_ category: UIActivityCategory) {
         self.category = category
     }
     
@@ -37,21 +37,21 @@ import FBSDKShareKit
         self.image = image
     }
     
-    public override func activityType() -> String? {
-        return String(AppInviteActivity.self)
+    open override var activityType : UIActivityType? {
+        return UIActivityType(String(describing: AppInviteActivity.self))
     }
     
-    public override func activityTitle() -> String? {
-        return title ?? NSLocalizedString("Facebook Invite", comment: "\(activityType()!) Title")
+    open override var activityTitle : String? {
+        return title ?? NSLocalizedString("Facebook Invite", comment: "\(activityType!) Title")
     }
     
-    public override func activityImage() -> UIImage? {
-        return image ?? UIImage(named: "\(activityType()!)\(AppInviteActivity.activityCategory().rawValue)", inBundle: NSBundle(forClass: AppInviteActivity.self), compatibleWithTraitCollection: nil)
+    open override var activityImage : UIImage? {
+        return image ?? UIImage(named: "\(activityType!)\(AppInviteActivity.activityCategory.rawValue)", in: Bundle(for: AppInviteActivity.self), compatibleWith: nil)
     }
     
-    public override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+    open override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
         for item in activityItems {
-            if let appLinkURL = item as? NSURL {
+            if let appLinkURL = item as? URL {
                 appInviteDialog.content.appLinkURL = appLinkURL
             }
             if let promotionText = item as? String {
@@ -67,7 +67,7 @@ import FBSDKShareKit
         }
     }
     
-    public override func performActivity() {
+    open override func perform() {
         appInviteDialog.show()
     }
     

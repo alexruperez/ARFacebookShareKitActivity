@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8A511D0B9E88F7BE7EA35276C80BEE4A"
+               BlueprintIdentifier = "2209C666340235EF32A0B01DB5183616"
                BuildableName = "ARFacebookShareKitActivity.framework"
                BlueprintName = "ARFacebookShareKitActivity"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A511D0B9E88F7BE7EA35276C80BEE4A"
+            BlueprintIdentifier = "2209C666340235EF32A0B01DB5183616"
             BuildableName = "ARFacebookShareKitActivity.framework"
             BlueprintName = "ARFacebookShareKitActivity"
             ReferencedContainer = "container:Pods.xcodeproj">

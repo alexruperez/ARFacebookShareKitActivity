@@ -8,8 +8,24 @@
 
 import FBSDKShareKit
 
+fileprivate extension DispatchQueue {
+
+    private static var _onceTracker = [String]()
+
+    public class func once(token: String, block:(Void)->Void) {
+        objc_sync_enter(self); defer { objc_sync_exit(self) }
+
+        if _onceTracker.contains(token) {
+            return
+        }
+
+        _onceTracker.append(token)
+        block()
+    }
+}
+
 public extension UIActivity {
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var ActivityContent = "ar_ActivityContent"
     }
     
@@ -29,34 +45,32 @@ public extension UIActivity {
             }
         }
     }
-    
-    public override class func initialize() {
-        struct Static {
-            static var token: dispatch_once_t = 0
-        }
-        
+
+    private static let _onceToken = NSUUID().uuidString
+
+    open override class func initialize() {
         let klass: AnyClass = NSClassFromString("UISoc"+"ialAct"+"ivity")!
         
         if self != klass {
             return
         }
-        
-        dispatch_once(&Static.token) {
-            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.prepareWithActivityItems(_:)), swizzledSelector: #selector(UIActivity.ar_prepareWithActivityItems(_:)))
-            
-            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.canPerformWithActivityItems(_:)), swizzledSelector: #selector(UIActivity.ar_canPerformWithActivityItems(_:)))
-            
-            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.performActivity), swizzledSelector: #selector(UIActivity.ar_performActivity))
+
+        DispatchQueue.once(token: _onceToken) {
+            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.prepare(withActivityItems:)), swizzledSelector: #selector(UIActivity.ar_prepare(withActivityItems:)))
+
+            ARSwizzleInstanceMethod(klass, originalSelector: #selector(UIActivity.canPerform(withActivityItems:)), swizzledSelector: #selector(UIActivity.ar_canPerform(withActivityItems:)))
+
+            ARSwizzleInstanceMethod(klass, originalSelector: Selector("UIActivity.perform"), swizzledSelector: #selector(UIActivity.ar_perform))
         }
     }
     
-    class func ar_defaultFacebookActivityType() -> String? {
+    class func ar_defaultFacebookActivityType() -> UIActivityType? {
         struct Static {
-            static var token: dispatch_once_t = 0
-            static var activityType: String? = nil
+            static var token: Int = 0
+            static var activityType: UIActivityType? = nil
         }
-        dispatch_once(&Static.token) {
-            Static.activityType = ["com", "apple", "UIKit", "activity", "PostToFacebook"].joinWithSeparator(".")
+        DispatchQueue.once(token: _onceToken) {
+            Static.activityType = UIActivityType(["com", "apple", "UIKit", "activity", "PostToFacebook"].joined(separator: "."))
         }
         return Static.activityType
     }
@@ -70,33 +84,33 @@ public extension UIActivity {
     }
     
     func ar_canUseFacebookActivityOverride() -> Bool {
-        return activityType() == self.dynamicType.ar_defaultFacebookActivityType() && (self.dynamicType.ar_canShowFacebookShareDialog() || self.dynamicType.ar_canShowFacebookAppInviteDialog())
+        return activityType == type(of: self).ar_defaultFacebookActivityType() && (type(of: self).ar_canShowFacebookShareDialog() || type(of: self).ar_canShowFacebookAppInviteDialog())
     }
     
-    func ar_canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
-        return ar_canUseFacebookActivityOverride() || ar_canPerformWithActivityItems(activityItems)
+    func ar_canPerform(withActivityItems activityItems: [Any]) -> Bool {
+        return ar_canUseFacebookActivityOverride() || ar_canPerform(withActivityItems:activityItems)
     }
     
-    func ar_prepareWithActivityItems(activityItems: [AnyObject]) {
+    func ar_prepare(withActivityItems activityItems: [AnyObject]) {
         if !ar_canUseFacebookActivityOverride() {
-            ar_prepareWithActivityItems(activityItems)
+            ar_prepare(withActivityItems:activityItems)
             return
         }
         
-        var sharedURL: NSURL? = nil
+        var sharedURL: URL? = nil
         var sharedText: String? = nil
         
         for itemSource in activityItems {
             var item: AnyObject? = nil
-            if itemSource.conformsToProtocol(UIActivityItemSource) {
-                if let activityType = activityType() {
-                    item = (itemSource as? UIActivityItemSource)?.activityViewController(activityViewController() as! UIActivityViewController, itemForActivityType: activityType)
+            if itemSource.conforms(to: UIActivityItemSource.self) {
+                if let activityType = activityType {
+                    item = (itemSource as? UIActivityItemSource)?.activityViewController(activityViewController as! UIActivityViewController, itemForActivityType: activityType) as AnyObject?
                 }
             } else {
                 item = itemSource
             }
             
-            if let item = item as? NSURL {
+            if let item = item as? URL {
                 sharedURL = item
             } else if let item = item as? String {
                 sharedText = item
@@ -111,14 +125,14 @@ public extension UIActivity {
         var isAppInvite = false
         
         if let sharedURL = sharedURL {
-            if let branchUniversalLinkDomains = NSBundle.mainBundle().infoDictionary?["branch_universal_link_domains"] {
+            if let branchUniversalLinkDomains = Bundle.main.infoDictionary?["branch_universal_link_domains"] {
                 if let oneDomain = branchUniversalLinkDomains as? String {
-                    if sharedURL.host?.containsString(oneDomain) == true {
+                    if sharedURL.host?.contains(oneDomain) == true {
                         isAppInvite = true
                     }
                 } else if let branchUniversalLinkDomains = branchUniversalLinkDomains as? [String] {
                     for oneDomain: String in branchUniversalLinkDomains {
-                        if sharedURL.host?.containsString(oneDomain) == true {
+                        if sharedURL.host?.contains(oneDomain) == true {
                             isAppInvite = true
                         }
                     }
@@ -127,7 +141,7 @@ public extension UIActivity {
             
             let branchDomains = ["bnc.lt", "app.link", "test-app.link"]
             for oneDomain in branchDomains {
-                if sharedURL.host?.containsString(oneDomain) == true {
+                if sharedURL.host?.contains(oneDomain) == true {
                     isAppInvite = true
                 }
             }
@@ -146,9 +160,9 @@ public extension UIActivity {
         }
     }
     
-    func ar_performActivity() {
+    func ar_perform() {
         if !ar_canUseFacebookActivityOverride() {
-            ar_performActivity()
+            ar_perform()
             return
         }
         
@@ -158,13 +172,13 @@ public extension UIActivity {
         }
         
         if let activityContent = activityContent as? FBSDKAppInviteContent {
-            FBSDKAppInviteDialog.showFromViewController(activityViewController(), withContent: activityContent, delegate: self)
+            FBSDKAppInviteDialog.show(from: activityViewController, with: activityContent, delegate: self)
         } else if let activityContent = activityContent as? FBSDKSharingContent {
-            FBSDKShareDialog.showFromViewController(activityViewController(), withContent: activityContent, delegate: self)
+            FBSDKShareDialog.show(from: activityViewController, with: activityContent, delegate: self)
         }
     }
     
-    static func ARSwizzleInstanceMethod(klass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
+    static func ARSwizzleInstanceMethod(_ klass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
         let originalMethod = class_getInstanceMethod(klass, originalSelector)
         let swizzledMethod = class_getInstanceMethod(klass, swizzledSelector)
         
