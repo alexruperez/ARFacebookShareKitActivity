@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
 [![License](https://img.shields.io/cocoapods/l/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
 [![Platform](https://img.shields.io/cocoapods/p/ARFacebookShareKitActivity.svg?style=flat)](http://cocoapods.org/pods/ARFacebookShareKitActivity)
+[![Build Status](https://travis-ci.org/alexruperez/ARFacebookShareKitActivity.svg?branch=master)](https://travis-ci.org/alexruperez/ARFacebookShareKitActivity)
 [![Analytics](https://ga-beacon.appspot.com/UA-55329295-1/ARFacebookShareKitActivity/readme?pixel)](https://github.com/igrigorik/ga-beacon)
 
 ## Overview
