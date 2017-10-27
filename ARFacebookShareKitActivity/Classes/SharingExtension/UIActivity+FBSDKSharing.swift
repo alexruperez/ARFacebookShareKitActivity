@@ -12,7 +12,7 @@ fileprivate extension DispatchQueue {
 
     private static var _onceTracker = [String]()
 
-    class func once(token: String, block:(Void)->Void) {
+    class func once(token: String, block:()->Void) {
         objc_sync_enter(self); defer { objc_sync_exit(self) }
 
         if _onceTracker.contains(token) {
@@ -48,7 +48,7 @@ public extension UIActivity {
 
     private static let _onceToken = NSUUID().uuidString
 
-    open override class func initialize() {
+    public class func replaceFacebookSharing() {
         let klass: AnyClass = NSClassFromString("UISoc"+"ialAct"+"ivity")!
         
         if self != klass {
@@ -87,11 +87,11 @@ public extension UIActivity {
         return activityType == type(of: self).ar_defaultFacebookActivityType() && (type(of: self).ar_canShowFacebookShareDialog() || type(of: self).ar_canShowFacebookAppInviteDialog())
     }
     
-    func ar_canPerform(withActivityItems activityItems: [Any]) -> Bool {
+    @objc func ar_canPerform(withActivityItems activityItems: [Any]) -> Bool {
         return ar_canUseFacebookActivityOverride() || ar_canPerform(withActivityItems:activityItems)
     }
     
-    func ar_prepare(withActivityItems activityItems: [AnyObject]) {
+    @objc func ar_prepare(withActivityItems activityItems: [AnyObject]) {
         if !ar_canUseFacebookActivityOverride() {
             ar_prepare(withActivityItems:activityItems)
             return
@@ -160,7 +160,7 @@ public extension UIActivity {
         }
     }
     
-    func ar_perform() {
+    @objc func ar_perform() {
         if !ar_canUseFacebookActivityOverride() {
             ar_perform()
             return
@@ -182,12 +182,12 @@ public extension UIActivity {
         let originalMethod = class_getInstanceMethod(klass, originalSelector)
         let swizzledMethod = class_getInstanceMethod(klass, swizzledSelector)
         
-        let didAddMethod = class_addMethod(klass, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+        let didAddMethod = class_addMethod(klass, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
         
         if didAddMethod {
-            class_replaceMethod(klass, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+            class_replaceMethod(klass, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
         } else {
-            method_exchangeImplementations(originalMethod, swizzledMethod)
+            method_exchangeImplementations(originalMethod!, swizzledMethod!)
         }
     }
     
